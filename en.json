@@ -1,0 +1,75 @@
+{
+   "error": {
+      "canceled": "Canceled..",
+      "cruise_control_disabled": "Cruise control disabled",
+      "cruise_control_unavailable": "Cruise control unavailable",
+      "deleted_recording": "Deleted Recording!",
+      "later_aligator": "Later aligator!",
+      "stress_gain": "Feeling More Stressed!",
+      "no_vehicle_nearby": "No Vehicle Nearby For Flipping.",
+      "is_handcuffed": "You are handcuffed.",
+      "is_fastened": "You wear a seat belt."
+   },
+   "success": {
+      "cruise_control_enabled": "Cruise control enabled",
+      "started_recording": "Started Recording!",
+      "stopped_recording": "Stopped Recording!",
+      "saved_recording": "Saved Recording!",
+      "stress_relief": "Feeling More Relaxed!",
+      "flipped_car": "Vehicle Flipped Successfully!"
+   },
+   "progress": {
+      "eating": "Eating..",
+      "drinking": "Drinking..",
+      "drinking_liquor": "Drinking liquor..",
+      "quick_sniff": "Quick sniff..",
+      "smoking_crack": "Smoking crack..",
+      "popping_pills": "Popping pills..",
+      "healing": "Healing..",
+      "smoking_meth": "Smoking meth..",
+      "lighting_joint": "Lighting joint..",
+      "flipping_car": "Flipping Vehicle..."
+   },
+   "info": {
+      "minutes": "minutes",
+      "seconds": "seconds..",
+      "shuffleSeat": "Shuffle seat"
+   },
+   "actions": {
+      "push_vehicle": "Press [~g~SHIFT~w~] and [~g~E~w~] to push the vehicle until [~g~SHIFT~w~] release",
+      "toggle_cruise_control": "Toggle Cruise Control"
+   },
+   "command": {
+      "plyrnotfound": "Player not found.",
+      "invalid_id": "No valid ID",
+      "own_id": "You can't use your own ID for this",
+      "arg_help": "Player ID",
+      "no_permission": "You do not have permission to use this command.",
+      "duty": { 
+         "help": "Go in/out of duty",
+         "on": "You are now on duty.",
+         "off": "You are now off duty."
+      },
+      "tpmc": {
+         "help": "Teleport to mount chiliad (Admin only)",
+         "success": "Teleported to mount chiliad."
+      },
+      "bring": {
+         "help": "Bring a player to you (Admin only)",
+         "success": "Player has been brought to your location."
+      },
+      "reviveall": {
+         "help": "Revives all players on the server (Admin only)",
+         "success": "All players revived."
+      },
+      "defaultinv": {
+         "help": "Gives the player default DEV items (Admin only)",
+         "success": "You got your standard DEV items."
+      },
+      "cid": {
+         "help": "Displays the citizenid of a specific player (Admin only)",
+         "success": "The citizenid of the player: %s is: %s",
+         "your_id": "Your own citizenid is: %s"
+      }
+   }
+}
