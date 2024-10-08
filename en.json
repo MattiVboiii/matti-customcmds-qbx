@@ -56,7 +56,7 @@
       },
       "bring": {
          "help": "Bring a player to you (Admin only)",
-         "success": "Player has been brought to your location."
+         "success": "%s (ID: %s) has been brought to your location."
       },
       "reviveall": {
          "help": "Revives all players on the server (Admin only)",
