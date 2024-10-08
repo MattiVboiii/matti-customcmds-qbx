@@ -85,26 +85,33 @@ lib.addCommand('cid', {
     end
 end)
 
--- TODO: Add bring command
---[[ lib.addCommand('bring', {
+-- Bring command
+lib.addCommand('bring', {
     help = 'Bring a player to your location',
     params = {{name = 'id', help = 'Player ID'}},
     restricted = 'group.admin'
 }, function(source, args)
     local player = exports.qbx_core:GetPlayer(source)
-    if not player then return end
-
-    local targetPlayer = exports.qbx_core:GetPlayer(args.id)
+    if not player then 
+        exports.qbx_core:Notify(source, 'Your player data could not be found', 'error')
+        return 
+    end
+    local targetSource = tonumber(args.id)
+    if not targetSource then
+        exports.qbx_core:Notify(source, 'Invalid player ID', 'error')
+        return
+    end
+    local targetPlayer = exports.qbx_core:GetPlayer(targetSource)
     if not targetPlayer then
         exports.qbx_core:Notify(source, 'Player not found', 'error')
         return
     end
-
     if targetPlayer.PlayerData.source == source then
         exports.qbx_core:Notify(source, 'You cannot bring yourself', 'error')
         return
     end
-
-    TriggerClientEvent('qbx_core:client:Teleport', targetPlayer.PlayerData.source, player.PlayerData.position)
+    local playerPed = GetPlayerPed(source)
+    local playerCoords = GetEntityCoords(playerPed)
+    TriggerClientEvent('qbx_core:client:Teleport', targetPlayer.PlayerData.source, playerCoords)
     exports.qbx_core:Notify(source, 'Player brought to your location', 'success')
-end) ]]
+end)
