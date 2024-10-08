@@ -87,31 +87,27 @@ end)
 
 -- Bring command
 lib.addCommand('bring', {
-    help = 'Bring a player to your location',
-    params = {{name = 'id', help = 'Player ID'}},
+    help = locale('command.bring.help'),
+    params = {
+        { name = 'id', help = locale('command.arg_help') },
+    },
     restricted = 'group.admin'
 }, function(source, args)
     local player = exports.qbx_core:GetPlayer(source)
-    if not player then 
-        exports.qbx_core:Notify(source, 'Your player data could not be found', 'error')
-        return 
-    end
-    local targetSource = tonumber(args.id)
-    if not targetSource then
-        exports.qbx_core:Notify(source, 'Invalid player ID', 'error')
+    if not player then return end
+
+    local targetId = tonumber(args.id)
+    if targetId == player.PlayerData.source then
+        exports.qbx_core:Notify(source, locale('command.own_id'), 'error')
         return
     end
-    local targetPlayer = exports.qbx_core:GetPlayer(targetSource)
-    if not targetPlayer then
-        exports.qbx_core:Notify(source, 'Player not found', 'error')
-        return
+
+    local targetPlayer = exports.qbx_core:GetPlayer(targetId)
+    if targetPlayer then
+        local adminPos = GetEntityCoords(GetPlayerPed(source))
+        SetEntityCoords(targetPlayer.PlayerData.source, adminPos.x + 1, adminPos.y, adminPos.z)
+        exports.qbx_core:Notify(source, locale('command.bring.success'):format(targetPlayer.PlayerData.charinfo.firstname .. " " .. targetPlayer.PlayerData.charinfo.lastname, targetId), 'success')
+    else
+        exports.qbx_core:Notify(source, locale('command.plyrnotfound'), 'error')
     end
-    if targetPlayer.PlayerData.source == source then
-        exports.qbx_core:Notify(source, 'You cannot bring yourself', 'error')
-        return
-    end
-    local playerPed = GetPlayerPed(source)
-    local playerCoords = GetEntityCoords(playerPed)
-    TriggerClientEvent('qbx_core:client:Teleport', targetPlayer.PlayerData.source, playerCoords)
-    exports.qbx_core:Notify(source, 'Player brought to your location', 'success')
 end)
