@@ -11,3 +11,5 @@ It's so easy lmao
 - /defaultinv : Gives you all the items that are listed (Admin Only)
 - /reviveall : Revives every player in the server (Admin Only)
 - /cid [ID] : Shows the CitizenID of a specified player (Admin Only)
+- /bring [ID] : Teleports the given ID to you (Admin Only)
+
